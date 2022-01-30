@@ -13,7 +13,7 @@ def task_timm_onnx():
     return {
         "targets": [tgt_model_file, tgt_metadata_file],
         "actions": [
-            f"docker-compose run --rm timm-onnx --model-name {model_name} --model-output {tgt_model_file} --metadata-output {tgt_metadata_file}"
+            f"docker-compose run --rm timm-onnx python /scripts/timm_onnx.py --model-name {model_name} --model-output {tgt_model_file} --metadata-output {tgt_metadata_file}"
         ],
         "uptodate": [True]
     }
@@ -26,6 +26,6 @@ def task_onnx_tf():
         "file_dep": [dep_file],
         "targets": [tgt_file],
         "actions": [
-            f"docker-compose run --rm onnx-tf --input {dep_file} --output {tgt_file}"
+            f"docker-compose run --rm onnx-tf python /scripts/onnx_tf_frontend.py --input {dep_file} --output {tgt_file}"
         ]
     }
