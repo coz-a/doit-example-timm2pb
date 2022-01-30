@@ -9,10 +9,8 @@ services:
     <<: *app
     build:
       context: dockerfiles/onnx-tf
-    command: onnx-tf
 
   timm-onnx:
     <<: *app
     build:
       context: dockerfiles/timm-onnx
-    command: timm-onnix

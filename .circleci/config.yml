@@ -11,14 +11,20 @@ jobs:
       - checkout
 
       - run:
-          name: "Setup environment variables"
+          name: "Setup"
           command: |
             echo 'export COMPOSE_FILE=docker-compose.yaml' >> $BASH_ENV
+            apt install -y python3-doit 
 
       - run: 
           name: "Build images"
           command: |
               docker-compose build
+
+      - run: 
+          name: "Doit"
+          command: |
+              doit model-name=resnet18
 
 workflows:
   version: 2

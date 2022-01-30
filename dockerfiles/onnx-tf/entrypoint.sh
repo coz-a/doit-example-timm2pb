@@ -1,6 +1,2 @@
-#! /bin/bash
-
-sudo usermod -u ${UID} developer
-sudo groupmod -g ${GID} developer
-
+#!/bin/bash
 python /scripts/onnx_tf_frontend.py "$@"
