@@ -14,7 +14,8 @@ jobs:
           name: "Setup"
           command: |
             echo 'export COMPOSE_FILE=docker-compose.yaml' >> $BASH_ENV
-            apt install -y python3-doit 
+            sudo apt update
+            sudo apt install -y python3-doit 
 
       - run: 
           name: "Build images"
