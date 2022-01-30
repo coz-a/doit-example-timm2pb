@@ -1,2 +1,2 @@
 #!/bin/bash
-python /scripts/timm_onnx.py "$@"
+python /scripts/onnx_tf_frontend.py "$@"
