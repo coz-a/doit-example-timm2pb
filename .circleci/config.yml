@@ -1,0 +1,27 @@
+version: 2
+
+jobs:
+  build_and_test:
+    machine:
+      image: ubuntu-2004:202107-02
+      resource_class: large 
+      docker_layer_caching: true
+
+    steps:
+      - checkout
+
+      - run:
+          name: "Setup environment variables"
+          command: |
+            echo 'export COMPOSE_FILE=docker-compose.yaml' >> $BASH_ENV
+
+      - run: 
+          name: "Build images"
+          command: |
+              docker-compose build
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build_and_test

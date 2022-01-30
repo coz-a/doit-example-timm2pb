@@ -1,0 +1,18 @@
+version: '2.4'
+
+x-app: &app
+  volumes:
+    - ./:/workspace
+
+services:
+  onnx-tf:
+    <<: *app
+    build:
+      context: dockerfiles/onnx-tf
+    command: onnx-tf
+
+  timm-onnx:
+    <<: *app
+    build:
+      context: dockerfiles/timm-onnx
+    command: timm-onnix
